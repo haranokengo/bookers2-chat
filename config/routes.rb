@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
   get 'chat/:id' => 'chats#show', as: 'chat'
   devise_for :users
-
+  
+  resources :chats, only: [:create]
   
   resources :users do
     resource :relationships, only: [:create, :destroy]

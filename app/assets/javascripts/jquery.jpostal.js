@@ -12,6 +12,7 @@
  * Requirements
  * jquery.js
  */
+ 
 var Jpostal = {};
 
 Jpostal.Database = function () {

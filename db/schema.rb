@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_13_164306) do
+ActiveRecord::Schema.define(version: 2021_04_09_082514) do
 
   create_table "book_comments", force: :cascade do |t|
     t.text "comment"
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 2021_02_13_164306) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.integer "visiter_id", null: false
+    t.integer "visited_id", null: false
+    t.string "action", default: "", null: false
+    t.boolean "checked", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
@@ -70,6 +79,7 @@ ActiveRecord::Schema.define(version: 2021_02_13_164306) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
+    t.integer "postalcode"
     t.text "introduction"
     t.string "profile_image_id"
     t.datetime "created_at", null: false

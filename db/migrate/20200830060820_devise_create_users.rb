@@ -33,11 +33,11 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.datetime :locked_at
 
       t.string :name
-      add_column :users, :postalcode, :integer
-      add_column :users, :prefecture_code, :integer
-      add_column :users, :address_city, :string
-      add_column :users, :address_street, :string
-      add_column :users, :address_building, :string
+      t.integer :postalcode
+      t.integer :prefecture_code
+      t.string :address_city
+      t.string :address_street
+      t.string :address_building
       t.text :introduction
       t.string :profile_image_id
       t.timestamps null: false

@@ -1,5 +1,22 @@
-<div>
-  <div>
-    <%= "あなたをフォローしました" %>
-  </div>
-</div>
+<h1>おしらせ</h1>
+<% if @notifications.exists? %>
+  <% @notifications.each do |notification| %>
+    <table>
+      <tr>
+        <td>
+          <%= link_to user_path(notification.visiter) do %>
+            <%= notification.visiter.name %>
+          <% end %>
+        </td>
+        <td>
+          からフォローされました。
+        </td>
+        <td>
+          <%= "(#{time_ago_in_words(notification.created_at)}まえ)" %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+<% else %>
+  <p>おしらせはありません</p>
+<% end %>
